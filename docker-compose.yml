@@ -1,0 +1,14 @@
+version: '3'
+services:
+  cnn:
+    environment:
+      PYTHONPATH: src/
+      NVIDIA_VISIBLE_DEVICES: all  # GPUを有効化
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'cnn'
+    tty: true
+    volumes:
+      - .:/build/
+    runtime: nvidia  # GPU対応のDockerランタイムを使用
