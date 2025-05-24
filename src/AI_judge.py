@@ -5,13 +5,13 @@ from ultralytics import YOLO
 import time
 import os
 # Load models
-home_base_model = YOLO("best_base_e100.pt")
+home_base_model = YOLO("weight/best_base_e100.pt")
 home_base_model.info()
-ball_model = YOLO("best_final.pt")
+ball_model = YOLO("weight/best_final.pt")
 ball_model.info()
 
-model_path_base = "best_base_e100.pt"
-model_path_ball = "best_final.pt"
+model_path_base = "weight/best_base_e100.pt"
+model_path_ball = "weight/best_final.pt"
 
 size_base = os.path.getsize(model_path_base) / (1024 * 1024)  # MB単位
 size_ball = os.path.getsize(model_path_ball) / (1024 * 1024)
@@ -146,7 +146,7 @@ def process_frame(frame):
     return frame
 
 def main():
-    video_path = 'input/judge_test.mp4'
+    video_path = 'test/judge_test.mp4'
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         print("Error opening video file")

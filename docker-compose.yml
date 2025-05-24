@@ -1,13 +1,13 @@
 version: '3'
 services:
-  cnn:
+  judge:
     environment:
       PYTHONPATH: src/
       NVIDIA_VISIBLE_DEVICES: all  # GPUを有効化
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: 'cnn'
+    container_name: 'judge'
     tty: true
     volumes:
       - .:/build/
